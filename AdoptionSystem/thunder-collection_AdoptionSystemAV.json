@@ -1,0 +1,168 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "AdoptionSystemAV",
+    "dateExported": "2024-02-22T19:29:36.058Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "805d0b1a-c6f4-4f15-adec-1aa65815eaa6",
+            "name": "UserAdmin",
+            "containerId": "",
+            "created": "2024-02-19T20:44:05.711Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "f565df9c-e0c2-4880-972a-417b99972c52",
+            "name": "Animal",
+            "containerId": "805d0b1a-c6f4-4f15-adec-1aa65815eaa6",
+            "created": "2024-02-19T20:44:29.517Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "2aec4121-dc9f-43d9-9af0-43df2d8a6f08",
+            "name": "User",
+            "containerId": "805d0b1a-c6f4-4f15-adec-1aa65815eaa6",
+            "created": "2024-02-19T20:44:35.584Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "892763c2-51e7-4039-8c89-8b9829d83953",
+            "name": "UserClient",
+            "containerId": "",
+            "created": "2024-02-19T20:44:46.164Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "775c2dcd-3016-40f8-9460-b79f4f5ef4a9",
+            "name": "Public",
+            "containerId": "",
+            "created": "2024-02-19T20:45:33.809Z",
+            "sortNum": 50000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "047933e8-9122-44aa-b784-7a63b84d4a6f",
+            "colId": "61578499-adc5-4a2e-991f-3f4f9c7fb06e",
+            "containerId": "f565df9c-e0c2-4880-972a-417b99972c52",
+            "name": "Save",
+            "url": "localhost:2880/animal/save",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-02-19T20:45:01.698Z",
+            "modified": "2024-02-19T20:50:11.372Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWM1NWZhYmY4YjQwNDc0NDc2NDY0MzIiLCJ1c2VybmFtZSI6ImpsdXRpbiIsIm5hbWUiOiJqYWltZSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTcwODM3NTgwNCwiZXhwIjoxNzA4Mzg2NjA0fQ.L3mBKyENZ-dINRB19opyb_BdEnd3sWWrEykW5R-eBcY"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Firu"
+                    },
+                    {
+                        "name": "description",
+                        "value": "ejemplo"
+                    },
+                    {
+                        "name": "age",
+                        "value": "2"
+                    },
+                    {
+                        "name": "type",
+                        "value": "Dog"
+                    },
+                    {
+                        "name": "keeper",
+                        "value": "65c55fabf8b4047447646432"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "dfaa4a84-e27b-4364-97c3-001ffd4fad94",
+            "colId": "61578499-adc5-4a2e-991f-3f4f9c7fb06e",
+            "containerId": "775c2dcd-3016-40f8-9460-b79f4f5ef4a9",
+            "name": "Register",
+            "url": "",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-02-19T20:45:42.717Z",
+            "modified": "2024-02-19T20:45:42.717Z",
+            "headers": []
+        },
+        {
+            "_id": "60af8005-82a6-414c-bc62-2f5e91801e50",
+            "colId": "61578499-adc5-4a2e-991f-3f4f9c7fb06e",
+            "containerId": "775c2dcd-3016-40f8-9460-b79f4f5ef4a9",
+            "name": "Login",
+            "url": "localhost:2880/login",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2024-02-19T20:45:47.008Z",
+            "modified": "2024-02-19T20:51:23.222Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "username",
+                        "value": "mquevedo"
+                    },
+                    {
+                        "name": "password",
+                        "value": "12345678"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "c28840f1-8265-42c6-919b-d6bf90d420fd",
+            "colId": "61578499-adc5-4a2e-991f-3f4f9c7fb06e",
+            "containerId": "f565df9c-e0c2-4880-972a-417b99972c52",
+            "name": "Get",
+            "url": "localhost:2880/animal/get",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-02-19T20:50:43.754Z",
+            "modified": "2024-02-19T20:53:04.822Z",
+            "headers": [
+                {
+                    "name": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWM2NzcyYWUxOGQ2MjU4ZmU3NTEzZTMiLCJ1c2VybmFtZSI6Im1xdWV2ZWRvIiwibmFtZSI6Ik1pZ3VlbCIsInJvbGUiOiJDTElFTlQiLCJpYXQiOjE3MDgzNzU4ODMsImV4cCI6MTcwODM4NjY4M30.EEVOoborngYqcQqJbLIk9CkXY-KUAXVmaul5dODJk1I"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "5318be6f-0966-4b60-828d-f9205fa5d73f",
+            "colId": "61578499-adc5-4a2e-991f-3f4f9c7fb06e",
+            "containerId": "892763c2-51e7-4039-8c89-8b9829d83953",
+            "name": "saveAppointment",
+            "url": "/appointment/save",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-02-22T19:27:30.867Z",
+            "modified": "2024-02-22T19:28:33.867Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ],
+    "settings": {
+        "options": {
+            "baseUrl": "localhost:2880"
+        }
+    }
+}
