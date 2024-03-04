@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <script src="./js/index.js" type="module" defer></script>
+    <title>Hangman game</title>
+  </head>
+  <body>
+    <!-- <h1 class="text-3xl font-bold underline bg-teal-500">Hello world!</h1> -->
+    <div class="main">
+
+      <div class="win arial" id="winModal">
+        <h1>You win!</h1>
+        <h2 id="showWord"></h2>
+        <p>Do you want to play again?</p>
+        <button type="button" id="playAgain">Play again</button>
+      </div>
+
+      <div class="lose arial" id="loseModal">
+        <h1>You lose <span>:(</span></h1>
+        <h2 id="showWord"></h2>
+        <button type="button" id="Retry">Retry</button>
+      </div>
+      
+      <div class="canva-container flex justify-center bg-red-400">
+        <!-- <h2 class="arial flex-col">Oportunidades: </h2> -->
+        <canvas id="canvas" width="400" height="400"></canvas>
+      </div>
+
+      
+      <!-- ! Keyboard-1 -->
+      <div class="keyboard-container">
+        <div id="table" class="flex justify-center mb-10 mt-7"></div>
+        <div class="keyboard-1 flex flex-row gap-1 mb-1 justify-center">
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="qKey"
+          >
+            <span>Q</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="wKey"
+          >
+            <span>W</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="eKey"
+          >
+            <span>E</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="rKey"
+          >
+            <span>R</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="tKey"
+          >
+            <span>T</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="yKey"
+          >
+            <span>Y</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="uKey"
+          >
+            <span>U</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="iKey"
+          >
+            <span>I</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="oKey"
+          >
+            <span>O</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="pKey"
+          >
+            <span>P</span>
+          </button>
+        </div>
+
+        <!-- ! Keyboard-2 -->
+        <div class="keyboard-1 flex flex-row gap-1 mb-1 justify-center">
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="aKey"
+          >
+            <span>A</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="sKey"
+          >
+            <span>S</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="dKey"
+          >
+            <span>D</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="fKey"
+          >
+            <span>F</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="gKey"
+          >
+            <span>G</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="hKey"
+          >
+            <span>H</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="jKey"
+          >
+            <span>J</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="kKey"
+          >
+            <span>K</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="lKey"
+          >
+            <span>L</span>
+          </button>
+          <!-- <button
+          type="button"
+          class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+        >
+          <span>Ñ</span>
+        </button> -->
+        </div>
+
+        <!-- ! Keyboard-3 -->
+        <div class="keyboard-1 flex flex-row gap-1 justify-center">
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="zKey"
+          >
+            <span>Z</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="xKey"
+          >
+            <span>X</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="cKey"
+          >
+            <span>C</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="vKey"
+          >
+            <span>V</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="bKey"
+          >
+            <span>B</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="nKey"
+          >
+            <span>N</span>
+          </button>
+          <button
+            type="button"
+            class="w-9 h-10 arial hover:bg-zinc-800 active:bg-zinc-950 active:text-slate-100 transition-all cursor-pointer border-none rounded-md flex justify-center items-center bg-zinc-900 text-slate-200"
+            id="mKey"
+          >
+            <span>M</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
